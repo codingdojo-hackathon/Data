@@ -1,5 +1,9 @@
 # Data
-Coding Dojo Hackathon
+**[ CodingDojo 2015 ]** 24-Hours Hackathon
 
-Members: (Add yourself)
+##Requirements
+Editing...
+
+##Members:
+**_(Add yourself)_**  
 Jack Chang
