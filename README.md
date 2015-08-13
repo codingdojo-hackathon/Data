@@ -6,5 +6,5 @@ Editing...
 
 ##Members:
 **_(Add yourself)_**  
-Jack Chang
-Austin Kihara
+Jack Chang,
+Austin Kihara, 
