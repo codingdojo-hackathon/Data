@@ -7,4 +7,6 @@ Editing...
 ##Members:
 **_(Add yourself)_**  
 Jack Chang,
-Austin Kihara, 
+Austin Kihara,
+**[Malik Nur]**
+[Malik Nur]: https://github.com/maliknur
