@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'firecalls/new'
 
-  get 'firecalls/index'
+  get '/firecalls' => 'firecalls#index'
 
   get 'firecalls/show'
 
