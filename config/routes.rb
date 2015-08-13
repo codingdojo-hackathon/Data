@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  get 'firecalls/new'
+
+  get 'firecalls/index'
+
+  get 'firecalls/show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 resources :main
