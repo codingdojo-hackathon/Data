@@ -42,3 +42,5 @@ gem 'bootstrap-sass', '~> 3.3.5'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
