@@ -11,8 +11,13 @@ default: &default
 development:
   <<: *default
   adapter: postgresql
-  password: 
-  database: data_development
+  host: ec2-54-163-228-0.compute-1.amazonaws.com
+  port: 5432
+  database: ddqd51ev9hf47o
+  pool: 5
+  user: dhxvbifotgjrqk
+  password: 12fHmy4jVFnio92CjgPShVa1jU
+  database: ddqd51ev9hf47o
   sslmode: require
 
 # Warning: The database defined as "test" will be erased and
@@ -20,8 +25,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: data_test
+  database: data_test1
 
 production:
   <<: *default
-  database: data_production
+  database: ddqd51ev9hf47o
