@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container text-center">
 	<h1>Seattle Fire Real-Time 911 Calls</h1>
  <div id="map" style="height: 800px;"></div>
 
@@ -32,7 +32,7 @@ function initMap() {
     zoom: 13,
     center: {lat: 47.6000015, lng: -122.2742706},
     styles:[{ stylers: [{"invert_lightness": true}]}],
-    mapTypeId: google.maps.MapTypeId.MAP
+    mapTypeId: google.maps.MapTypeId.SATELLITE
   });
 
   heatmap = new google.maps.visualization.HeatmapLayer({
@@ -67,11 +67,11 @@ function changeGradient() {
 }
 
 function changeRadius() {
-  heatmap.set('radius', heatmap.get('radius') ? null : 50);
+  heatmap.set('radius', heatmap.get('radius') ? null : 20);
 }
 
 function changeOpacity() {
-  heatmap.set('opacity', heatmap.get('opacity') ? null : 0.7);
+  heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
 }
 
 // Heatmap data:
