@@ -1,9 +1,13 @@
 <div class="container text-center">
-	<h1>Seattle Fire Real-Time 911 Calls</h1>
+	<h1>Seattle 911 Calls HeatMap</h1>
  <div id="map" style="height: 800px;"></div>
 
  <div class="container">
- 	<ul class="my-new-list"></ul>
+ <h1>
+ 	<%= @firecalls.length  %> Calls
+ 	from <%= @firecalls[0].datetime.strftime("%F") %>
+ 	to <%= @firecalls[@firecalls.length-1].datetime.strftime("%F")  %>
+ </h1>
  </div>
 
 <script>
@@ -15,7 +19,6 @@ function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 13,
     center: {lat: 47.607387, lng: -122.3079811},
-    styles:[{ stylers: [{"invert_lightness": true}]}],
     mapTypeId: google.maps.MapTypeId.SATELLITE
   });
 
@@ -25,16 +28,17 @@ function initMap() {
     map: map
   });
 
-
 <% @firecalls.each do |firecall| %>
 	
 
   	data1.push(new google.maps.LatLng(<%= firecall[:latitude] %>,<%= firecall[:longitude]%>));
 
-  heatmap.setMap(map);
 
 <% end %>
 
+heatmap.setMap(map);
+
+console.log(data1.length)
 // $.getJSON( "https://data.seattle.gov/resource/kzjm-xkqj.json", function( data ) {
 //   $.each( data, function( key, val ) {
 //   	data1.push(new google.maps.LatLng(val['latitude'], val['longitude']));
@@ -69,7 +73,7 @@ function changeGradient() {
 }
 
 function changeRadius() {
-  heatmap.set('radius', heatmap.get('radius') ? null : 20);
+  heatmap.set('radius', heatmap.get('radius') ? null : 10);
 }
 
 function changeOpacity() {
