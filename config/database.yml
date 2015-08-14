@@ -8,11 +8,11 @@ default: &default
   adapter: postgresql
   encoding: unicode
 
-development:
-  <<: *default
-  database: ddqd51ev9hf47o
+# development:
+#   <<: *default
+#   database: ddqd51ev9hf47o
 
-production:
+development:
   <<: *default
   adapter: postgresql
   host: ec2-54-163-228-0.compute-1.amazonaws.com
