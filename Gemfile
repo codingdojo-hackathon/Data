@@ -36,7 +36,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'whenever'
 
 # heroku gem
-gem 'rails_12factor', group: :production
+gem 'rails_12factor', group: :development
 gem 'soda-ruby', :require => 'soda'
 # Use unicorn as the app server
 # gem 'unicorn'

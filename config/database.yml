@@ -8,11 +8,11 @@ default: &default
   adapter: postgresql
   encoding: unicode
 
-development:
-  <<: *default
-  database: ddqd51ev9hf47o
+# development:
+#   <<: *default
+#   database: ddqd51ev9hf47o
 
-production:
+development:
   <<: *default
   adapter: postgresql
   host: ec2-54-163-228-0.compute-1.amazonaws.com
@@ -21,7 +21,6 @@ production:
   pool: 5
   user: dhxvbifotgjrqk
   password: 12fHmy4jVFnio92CjgPShVa1jU
-  database: ddqd51ev9hf47o
   sslmode: require
 
 # Warning: The database defined as "test" will be erased and
