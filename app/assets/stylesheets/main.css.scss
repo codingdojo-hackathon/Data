@@ -1,3 +1,36 @@
 // Place all the styles related to the Main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+	.jumbotron{
+		margin:55px;
+		border:4px solid black;
+		padding:50px;
+	    background: url("newyork.jpg");
+	    color:#E0E0E0;
+	    background-size: 800px 360px;
+	    p, h1{
+		    color: white !important;
+		    text-shadow:
+		    -1px -1px 0 #000,
+		    1px -1px 0 #000,
+		    -1px 1px 0 #000,
+		    1px 1px 0 #000;  
+		}
+	}
+	#manage_users,#messages, #edit{
+		width:330px;
+		height:150px;
+		display:inline-block;
+		margin-left:25px;
+		vertical-align: top;
+
+	}
+	#bottom{
+		margin-left:75px;
+	}
+	button{
+		width:90px;
+		margin-top:15px;
+	}
