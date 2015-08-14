@@ -5,6 +5,7 @@
 Editing...
 
 ##Members:
+**[Augustine Kim]**
 Austin Kihara  
 **[Jack Chang]**    
 **[Malik Nur]**  
@@ -12,6 +13,6 @@ Austin Kihara
 
 
 
-
+[Augustine Kim]: https://github.com/hkim2171
 [Malik Nur]: https://github.com/maliknur
 [Jack Chang]: https://github.com/wei0831
