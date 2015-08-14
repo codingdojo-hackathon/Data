@@ -1,30 +1,3 @@
-<script src='http://code.highcharts.com/highcharts.js'></script>
-<script src='http://code.highcharts.com/modules/data.js'></script>
-
-
-<script>
-//loop through objects from api call
-$(document).ready(function(){                           
-    var obj = {};                       
-    $.ajax({                        
-        url:"https://data.seattle.gov/resource/grwu-wqtk.json",                 
-        method:"get",                   
-        success:(function(data){                    
-            obj = data;             
-            // console.log(obj);               
-            for(var i = 0; i < obj.length; i ++){               
-                            
-                for (var j = 0; j < obj[i].length; j ++){           
-                    $('body').append(obj[i][j].type+"</br>");       
-                }           
-                            
-            }               
-                            
-        }),                 
-        dataType: "JSON"                    
-    });                     
-})                                             
-</script>
 
 <div class="container container-fluid">
 
@@ -32,10 +5,19 @@ $(document).ready(function(){
 	<h1>Seattle Fire Real-Time 911 Calls</h1>
 
 
+
+	<div id="chart" style="width:100%; height:400px;">
+
+
+	</div>
+
+</div>
+
+
 	
-<div id="chart" style="width:100%; height:400px;">
 
 <script> 
+
 
 //loop through objects from api call
 $(document).ready(function(){        
@@ -53,7 +35,7 @@ $(document).ready(function(){
                     $('body').append(obj[i][j].type+"</br>"); 
 
                 }           
-                            
+
             }               
         	total = 0;
         	count = {};
@@ -79,8 +61,8 @@ $(document).ready(function(){
             	console.log(percentage[item].sum)
             }
            
-            chart(percentage);
 
+            chart();
          
         }), 
 
@@ -93,7 +75,9 @@ $(document).ready(function(){
        
 })  
 
-function chart(percentage) {
+
+function chart() {
+
     // Create the chart
     $('#chart').highcharts({
         chart: {
@@ -121,33 +105,25 @@ function chart(percentage) {
         series: [{
             name: "Brands",
             colorByPoint: true,
-            data: [{
-                name: "Aid Response",
-                y: percentage["Aid Response"],
-                drilldown: "Aid Response"
-            }, {
-                name: "Event - Special Event",
-                y: percentage["EVENT - Special Event"],
-                drilldown: "Event - Special Event"
-            }, {
-                name: "Trans to AMR",
-                y: percentage["Trans to AMR"],
-                drilldown: "Trans to AMR"
-            }, {
-                name: "Medic Response",
-                y: percentage["Medic Response"],
-                drilldown: "Medic Response"
-            }, {
-                name: "Auto Fire Alarm",
-                y: percentage["Auto Fire Alarm"],
-                drilldown: "Auto Fire Alarm"
-            }, {
-                name: "1RED 1 Unit",
-                y: percentage["1RED 1 Unit"],
-                drilldown: "1RED 1 Unit"
+
+            data: [
+           	<% boo = false%>
+            <% @aidresponse.each do |k,v| %>
+            <% percentage = v *100/@total %>
+            <%if boo %> 
+	            <%= "," %> 
+            <% end %>
+            <% boo = true %>
+            {
+	            	name: "<%= k %>",
+	            	y: <%= percentage %>,
+	            	drilldown: "<%= k %>"
             }
-            ]
+            <% end %>
+            ]            
         }],
+
+
         drilldown: {
             series: [{
                 name: "Microsoft Internet Explorer",
@@ -206,9 +182,10 @@ function chart(percentage) {
     });
 };
 
-  </script>
 
 
-</div>
 
-</div>
+
+
+
+</script>
