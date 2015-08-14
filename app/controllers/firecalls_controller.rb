@@ -2,6 +2,7 @@ class FirecallsController < ApplicationController
 
   def new
 
+
   	@firecalls = Seattle911.select("seattle911s.incident_type")
   	@total = Seattle911.select("seattle911s.incident_type").count
   	@aidresponse_server = Seattle911.group(:incident_type).count(:incident_number)
@@ -22,7 +23,6 @@ class FirecallsController < ApplicationController
   			@aidresponse["Others"] += v
   		end
   	end
-
 
   end
 
