@@ -3,6 +3,8 @@ class FirecallsController < ApplicationController
   end
 
   def index
+  	@firecalls = Seattle911.all.limit(2000)
+
   end
 
   def show
