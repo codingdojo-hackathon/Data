@@ -6,7 +6,7 @@ Editing...
 
 ##Members:
 **[Augustine Kim]**
-Austin Kihara  
+**[Austin Kihara]**
 **[Jack Chang]**    
 **[Malik Nur]**  
 
