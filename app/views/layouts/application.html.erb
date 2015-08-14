@@ -9,7 +9,7 @@
 </head>
 <body>
 <nav class="navbar navbar-default">
-<div class="container">
+<div class="container-fluid">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
       <span class="sr-only">Toggle navigation</span>
@@ -25,12 +25,10 @@
      	<li><a href="/">Home</a></li>
       	<li><a href="/firecalls">Seattle 911 Fire Calls</a></li>
       	<li><a href="/crimes">Seattle Crime Stats</a></li>
-        <li><a href="/firecalls/new">Seattle Fire Calls Pie Chart</a></li>
     </ul>
   </div>
 </div>
 </nav>
-<div>
 <%= yield %>
 </div>
 
@@ -40,9 +38,6 @@
     </script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="http://code.highcharts.com/highcharts-more.js"></script>
+
 </body>
-
-
 </html>
-
-
