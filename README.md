@@ -20,4 +20,4 @@ Editing...
 [Chris Tran]: https://github.com/christ-huytran
 [Jack Chang]: https://github.com/wei0831
 [Malik Nur]: https://github.com/maliknur
-[Patric Vanderwall]: https://github.com/pvanderw
+[Patrick Vanderwall]: https://github.com/pvanderw
