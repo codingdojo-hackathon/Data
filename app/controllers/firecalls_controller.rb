@@ -4,8 +4,7 @@ class FirecallsController < ApplicationController
   end
 
   def index
-  	@firecalls = Seattle911.all
-
+  	@firecalls = Seattle911.all 	
   end
 
   def show
