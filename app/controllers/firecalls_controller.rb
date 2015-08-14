@@ -1,5 +1,6 @@
 class FirecallsController < ApplicationController
   def new
+  	
   end
 
   def index

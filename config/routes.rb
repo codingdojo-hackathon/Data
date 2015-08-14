@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  get '/firecalls/new' => 'firecalls#new'
 
   get '/firecalls' => 'firecalls#index'
 

@@ -1,2 +1,214 @@
-<h1>Firecalls#new</h1>
-<p>Find me in app/views/firecalls/new.html.erb</p>
+<script src='http://code.highcharts.com/highcharts.js'></script>
+<script src='http://code.highcharts.com/modules/data.js'></script>
+
+
+<script>
+//loop through objects from api call
+$(document).ready(function(){                           
+    var obj = {};                       
+    $.ajax({                        
+        url:"https://data.seattle.gov/resource/grwu-wqtk.json",                 
+        method:"get",                   
+        success:(function(data){                    
+            obj = data;             
+            // console.log(obj);               
+            for(var i = 0; i < obj.length; i ++){               
+                            
+                for (var j = 0; j < obj[i].length; j ++){           
+                    $('body').append(obj[i][j].type+"</br>");       
+                }           
+                            
+            }               
+                            
+        }),                 
+        dataType: "JSON"                    
+    });                     
+})                                             
+</script>
+
+<div class="container container-fluid">
+
+
+	<h1>Seattle Fire Real-Time 911 Calls</h1>
+
+
+	
+<div id="chart" style="width:100%; height:400px;">
+
+<script> 
+
+//loop through objects from api call
+$(document).ready(function(){        
+	var percentage = {};                   
+    var obj = {};                       
+    $.ajax({                        
+        url:"https://data.seattle.gov/resource/grwu-wqtk.json",                 
+        method:"get",                   
+        success:(function(data){                    
+            obj = data;             
+                       
+            for(var i = 0; i < obj.length; i ++){               
+                            
+                for (var j = 0; j < obj[i].length; j ++){           
+                    $('body').append(obj[i][j].type+"</br>"); 
+
+                }           
+                            
+            }               
+        	total = 0;
+        	count = {};
+            for(var arr1 in obj){
+            	if(count.hasOwnProperty(obj[arr1]["type"])){
+            		count[obj[arr1]["type"]]++;
+            		// total++;
+            	} else {
+            		count[obj[arr1]["type"]] = 1;
+            		// total++;
+            	}
+            }
+        
+
+            
+            for(var item in count){
+            	total += count[item];
+
+            }
+            
+            for(var item in count){
+            	percentage[item] = count[item]/total*100;
+            	console.log(percentage[item].sum)
+            }
+           
+            chart(percentage);
+
+         
+        }), 
+
+
+        dataType: "JSON"   
+
+
+
+    });                     
+       
+})  
+
+function chart(percentage) {
+    // Create the chart
+    $('#chart').highcharts({
+        chart: {
+            type: 'pie'
+        },
+        title: {
+            text: 'Browser market shares. January, 2015 to May, 2015'
+        },
+        subtitle: {
+            text: 'Click the slices to view versions. Source: netmarketshare.com.'
+        },
+        plotOptions: {
+            series: {
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}: {point.y:.1f}%'
+                }
+            }
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+        },
+        series: [{
+            name: "Brands",
+            colorByPoint: true,
+            data: [{
+                name: "Aid Response",
+                y: percentage["Aid Response"],
+                drilldown: "Aid Response"
+            }, {
+                name: "Event - Special Event",
+                y: percentage["EVENT - Special Event"],
+                drilldown: "Event - Special Event"
+            }, {
+                name: "Trans to AMR",
+                y: percentage["Trans to AMR"],
+                drilldown: "Trans to AMR"
+            }, {
+                name: "Medic Response",
+                y: percentage["Medic Response"],
+                drilldown: "Medic Response"
+            }, {
+                name: "Auto Fire Alarm",
+                y: percentage["Auto Fire Alarm"],
+                drilldown: "Auto Fire Alarm"
+            }, {
+                name: "1RED 1 Unit",
+                y: percentage["1RED 1 Unit"],
+                drilldown: "1RED 1 Unit"
+            }
+            ]
+        }],
+        drilldown: {
+            series: [{
+                name: "Microsoft Internet Explorer",
+                id: "Microsoft Internet Explorer",
+                data: [
+                    ["v11.0", 24.13],
+                    ["v8.0", 17.2],
+                    ["v9.0", 8.11],
+                    ["v10.0", 5.33],
+                    ["v6.0", 1.06],
+                    ["v7.0", 0.5]
+                ]
+            }, {
+                name: "Chrome",
+                id: "Chrome",
+                data: [
+                    ["v40.0", 5]
+                
+                ]
+            }, {
+                name: "Firefox",
+                id: "Firefox",
+                data: [
+                    ["v35", 2.76],
+                    ["v36", 2.32],
+                    ["v37", 2.31],
+                    ["v34", 1.27],
+                    ["v38", 1.02],
+                    ["v31", 0.33],
+                    ["v33", 0.22],
+                    ["v32", 0.15]
+                ]
+            }, {
+                name: "Safari",
+                id: "Safari",
+                data: [
+                    ["v8.0", 2.56],
+                    ["v7.1", 0.77],
+                    ["v5.1", 0.42],
+                    ["v5.0", 0.3],
+                    ["v6.1", 0.29],
+                    ["v7.0", 0.26],
+                    ["v6.2", 0.17]
+                ]
+            }, {
+                name: "Opera",
+                id: "Opera",
+                data: [
+                    ["v12.x", 0.34],
+                    ["v28", 0.24],
+                    ["v27", 0.17],
+                    ["v29", 0.16]
+                ]
+            }]
+        }
+    });
+};
+
+  </script>
+
+
+</div>
+
+</div>
