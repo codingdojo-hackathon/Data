@@ -1,7 +1,6 @@
 
 <script type="text/javascript">
-
-$(document).ready(function()
+ $(document).ready(function()
 {
 	var link = "https://data.seattle.gov/resource/e3zj-s4zh.json?$select=crime_type,report_year,SUM(report_year_total)&$group=crime_type,report_year";
 	$.get(link, function(res) {
