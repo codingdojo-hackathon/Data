@@ -3,9 +3,11 @@
 
 $(document).ready(function()
 {
+	//link with query parameters for crime data
 	var link = "https://data.seattle.gov/resource/e3zj-s4zh.json?$select=crime_type,report_year,SUM(report_year_total)&$group=crime_type,report_year";
 	$.get(link, function(res) {
 
+		//loop through JSON data and fill in the highchart
 		var data = [];
 		for (var i = 0; i < 10; i++) {
 			var year = [];
@@ -22,7 +24,7 @@ $(document).ready(function()
 			data.push(year);
 		}
 
-		$('#container').highcharts({
+		$('#column').highcharts({
 			
 	        chart: {
 	            type: 'column'
@@ -105,9 +107,38 @@ $(document).ready(function()
 	        	type: 'column',
 	        	name: res[9].crime_type,
 	        	data: [data[0][9], data[1][9], data[2][9], data[3][9], data[4][9], data[5][9], data[6][9], data[7][9], data[8][9], data[9][9]]
-	        }, {
-	            type: 'pie',
-	            name: 'Average Crime Totals',
+	        }]
+	    });
+
+		$('#pie').highcharts({
+	        chart: {
+	            plotBackgroundColor: null,
+	            plotBorderWidth: null,
+	            plotShadow: false,
+	            type: 'pie'
+	        },
+	        title: {
+	            text: null
+	        },
+	        tooltip: {
+	            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+	        },
+	        plotOptions: {
+	            pie: {
+	                allowPointSelect: true,
+	                cursor: 'pointer',
+	                dataLabels: {
+	                    enabled: true,
+	                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+	                    style: {
+	                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+	                    }
+	                }
+	            }
+	        },
+	        series: [{
+	            name: "Average Crime Percentages",
+	            colorByPoint: true,
 	            data: [{
 	                name: res[0].crime_type,
 	                y: Math.round((data[0][0]+data[1][0]+data[2][0]+data[3][0]+data[4][0]+data[5][0]+data[6][0]+data[7][0]+data[8][0]+data[9][0]+data[10][0]+data[11][0])/12)
@@ -133,19 +164,9 @@ $(document).ready(function()
 	                name: res[8].crime_type,
 	                y: Math.round((data[0][8]+data[1][8]+data[2][8]+data[3][8]+data[4][8]+data[5][8]+data[6][8]+data[7][8]+data[8][8]+data[9][8]+data[10][7]+data[11][7])/12)
 	            }],
-	            center: [1010, 30],
-	            size: 100,
-	            showInLegend: false,
-	            dataLabels: {
-	                enabled: false
-	            }
 	        }]
 	    });
-	});
-
-
-
-    
+	});    
 });
 
 </script>
@@ -155,5 +176,6 @@ $(document).ready(function()
 <div class="container text-center">
 	<h1>Seattle Crime Stats from 1996-2007</h1>
 </div>
-<div id="container" class="container" style="width:100%; height:400px;"></div>
+<div id="column" class="container" style="width:100%; height:400px;"></div>
+<div id="pie" class="container" style="width:100%; height:400px;"></div>
 
