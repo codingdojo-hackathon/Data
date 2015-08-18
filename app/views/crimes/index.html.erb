@@ -1,6 +1,174 @@
 
 <script type="text/javascript">
- 
+
+$(document).ready(function()
+{
+	//link with query parameters for crime data
+	var link = "https://data.seattle.gov/resource/e3zj-s4zh.json?$select=crime_type,report_year,SUM(report_year_total)&$group=crime_type,report_year";
+	$.get(link, function(res) {
+
+		//loop through JSON data and fill in the highchart
+		var data = [];
+		for (var i = 0; i < 10; i++) {
+			var year = [];
+			for (var j = 0; j < 10; j++) {
+				year.push(parseInt(res[j+(i*10)].sum_report_year_total,10));
+			}
+			data.push(year);
+		}
+		for (var i = 0; i < 2; i++) {
+			var year = [];
+			for (var j = 0; j < 8; j++) {
+				year.push(parseInt(res[(i*8)+j+100].sum_report_year_total,10));
+			}
+			data.push(year);
+		}
+
+		$('#column').highcharts({
+			
+	        chart: {
+	            type: 'column'
+	        },
+	        title: {
+	            text: 'Number of Crimes in Seattle'
+	        },
+	        subtitle: {
+	            text: 'Source: data.seattle.gov'
+	        },
+	        xAxis: {
+	            // categories: ['1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007'],
+	            categories: [1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007],
+	            crosshair: true
+	        },
+	        yAxis: {
+	            min: 0,
+	            title: {
+	                text: 'Number of Occurrences'
+	            }
+	        },
+	        plotOptions: {
+	            column: {
+	                pointPadding: 0.2,
+	                borderWidth: 0
+	            }
+	        },
+	        series: [{
+	        	type: 'line',
+	            name: 'Total Property Crimes Regression Line',
+	        	data: [[0, data[0][3]], [9, data[9][3]]],
+	            marker: {
+	                enabled: true
+	            },
+	            states: {
+	                hover: {
+	                    lineWidth: 0
+	                }
+	            },
+	            enableMouseTracking: true
+	        }, {
+	        	type: 'column',
+	            name: res[0].crime_type,
+	            data: [data[0][0], data[1][0], data[2][0], data[3][0], data[4][0], data[5][0], data[6][0], data[7][0], data[8][0], data[9][0], data[10][0], data[11][0]]
+	        }, {
+	        	type: 'column',
+	            name: res[1].crime_type,
+	            data: [data[0][1], data[1][1], data[2][1], data[3][1], data[4][1], data[5][1], data[6][1], data[7][1], data[8][1], data[9][1], data[10][1], data[11][1]]
+
+	        }, {
+	        	type: 'column',
+	            name: res[2].crime_type,
+	            data: [data[0][2], data[1][2], data[2][2], data[3][2], data[4][2], data[5][2], data[6][2], data[7][2], data[8][2], data[9][2], data[10][2], data[11][2]]
+
+	        }, {
+	        	type: 'column',
+	            name: res[3].crime_type,
+	            data: [data[0][3], data[1][3], data[2][3], data[3][3], data[4][3], data[5][3], data[6][3], data[7][3], data[8][3], data[9][3]]
+	        }, {
+	        	type: 'column',
+	        	name: res[4].crime_type,
+	        	data: [data[0][4], data[1][4], data[2][4], data[3][4], data[4][4], data[5][4], data[6][4], data[7][4], data[8][4], data[9][4], data[10][3], data[11][3]]
+	        }, {
+	        	type: 'column',
+	        	name: res[5].crime_type,
+	        	data: [data[0][5], data[1][5], data[2][5], data[3][5], data[4][5], data[5][5], data[6][5], data[7][5], data[8][5], data[9][5], data[10][4], data[11][4]]
+	        }, {
+	        	type: 'column',
+	        	name: res[6].crime_type,
+	        	data: [data[0][6], data[1][6], data[2][6], data[3][6], data[4][6], data[5][6], data[6][6], data[7][6], data[8][6], data[9][6], data[10][5], data[11][5]]
+	        }, {
+	        	type: 'column',
+	        	name: res[7].crime_type,
+	        	data: [data[0][7], data[1][7], data[2][7], data[3][7], data[4][7], data[5][7], data[6][7], data[7][7], data[8][7], data[9][7], data[10][6], data[11][6]]
+	        }, {
+	        	type: 'column',
+	        	name: res[8].crime_type,
+	        	data: [data[0][8], data[1][8], data[2][8], data[3][8], data[4][8], data[5][8], data[6][8], data[7][8], data[8][8], data[9][8], data[10][7], data[11][7]]
+	        }, {
+	        	type: 'column',
+	        	name: res[9].crime_type,
+	        	data: [data[0][9], data[1][9], data[2][9], data[3][9], data[4][9], data[5][9], data[6][9], data[7][9], data[8][9], data[9][9]]
+	        }]
+	    });
+
+		$('#pie').highcharts({
+	        chart: {
+	            plotBackgroundColor: null,
+	            plotBorderWidth: null,
+	            plotShadow: false,
+	            type: 'pie'
+	        },
+	        title: {
+	            text: null
+	        },
+	        tooltip: {
+	            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+	        },
+	        plotOptions: {
+	            pie: {
+	                allowPointSelect: true,
+	                cursor: 'pointer',
+	                dataLabels: {
+	                    enabled: true,
+	                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+	                    style: {
+	                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+	                    }
+	                }
+	            }
+	        },
+	        series: [{
+	            name: "Average Crime Percentages",
+	            colorByPoint: true,
+	            data: [{
+	                name: res[0].crime_type,
+	                y: Math.round((data[0][0]+data[1][0]+data[2][0]+data[3][0]+data[4][0]+data[5][0]+data[6][0]+data[7][0]+data[8][0]+data[9][0]+data[10][0]+data[11][0])/12)
+	            }, {
+	                name: res[1].crime_type,
+	                y: Math.round((data[0][1]+data[1][1]+data[2][1]+data[3][1]+data[4][1]+data[5][1]+data[6][1]+data[7][1]+data[8][1]+data[9][1]+data[10][1]+data[11][1])/12)
+	            }, {
+	                name: res[2].crime_type,
+	                y: Math.round((data[0][2]+data[1][2]+data[2][2]+data[3][2]+data[4][2]+data[5][2]+data[6][2]+data[7][2]+data[8][2]+data[9][2]+data[10][2]+data[11][2])/12)
+	            }, {
+	                name: res[4].crime_type,
+	                y: Math.round((data[0][4]+data[1][4]+data[2][4]+data[3][4]+data[4][4]+data[5][4]+data[6][4]+data[7][4]+data[8][4]+data[9][4]+data[10][3]+data[11][3])/12)
+	            }, {
+	                name: res[5].crime_type,
+	                y: Math.round((data[0][5]+data[1][5]+data[2][5]+data[3][5]+data[4][5]+data[5][5]+data[6][5]+data[7][5]+data[8][5]+data[9][5]+data[10][4]+data[11][4])/12)
+	            }, {
+	                name: res[6].crime_type,
+	                y: Math.round((data[0][6]+data[1][6]+data[2][6]+data[3][6]+data[4][6]+data[5][6]+data[6][6]+data[7][6]+data[8][6]+data[9][6]+data[10][5]+data[11][5])/12)
+	            }, {
+	                name: res[7].crime_type,
+	                y: Math.round((data[0][7]+data[1][7]+data[2][7]+data[3][7]+data[4][7]+data[5][7]+data[6][7]+data[7][7]+data[8][7]+data[9][7]+data[10][6]+data[11][6])/12)
+	            }, {
+	                name: res[8].crime_type,
+	                y: Math.round((data[0][8]+data[1][8]+data[2][8]+data[3][8]+data[4][8]+data[5][8]+data[6][8]+data[7][8]+data[8][8]+data[9][8]+data[10][7]+data[11][7])/12)
+	            }],
+	        }]
+	    });
+	});    
+});
+
 
 </script>
 
@@ -9,7 +177,8 @@
 <div class="container text-center">
 	<h1>Seattle Crime Stats from 1996-2007</h1>
 </div>
-<div id="container" class="container" style="width:100%; height:400px;"></div>
+<div id="column" class="container" style="width:100%; height:400px;"></div>
+<div id="pie" class="container" style="width:100%; height:400px;"></div>
 
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/highcharts-more.js"></script>
