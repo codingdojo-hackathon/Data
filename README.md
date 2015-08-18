@@ -1,8 +1,42 @@
-# Data
-**[ CodingDojo 2015 ]** 24-Hours Hackathon
+# Data Mining and Vizualization Project
 
-##Requirements
-Editing...
+**[ CodingDojo 2015 ]** 24-Hours Hackathon Winner
+
+## Technology stack
+```
+Ruby on Rails
+PostgreSQL
+Javascript / JSON
+Government Public APIs
+Google Maps API
+Highcharts
+
+```
+
+## About project
+Website automatically downloads each 30 minutes all 911 call logs from Seattle City Data API and save them in PostgreSQL database, then provides analyze on type of calls and vizualizes calls on Heatmap using Google Maps API.
+Moreover in the framework of this project, team conducted an analysis of all crime types in Seattle area and also vizualized them using Highcharts
+
+## Limited Demo
+Here is limited version of website deployed - ** Demo **
+
+[Demo]: http://codingdojo-hackathon.herokuapp.com/
+
+## Screen Shots
+__Seattle 911 Calls Heatmap:__
+![Heatmap1](/screenshots/911calls_heatmap1.png?raw=true)
+
+![Heatmap2](/screenshots/911calls_heatmap2.png?raw=true)
+
+![Heatmap3](/screenshots/911calls_heatmap3.png?raw=true)
+
+__Seattle 911 Calls Pie Chart:__
+![Pie chart](/screenshots/911calls_pie.png?raw=true)
+
+__Seattle Crime Types Chart:__
+![Seattle Crime1](/screenshots/seattle_crime1.png?raw=true)
+![Seattle Crime2](/screenshots/seattle_crime2.png?raw=true)
+
 
 ##Members:
 **[Austin Chang]**
@@ -13,6 +47,14 @@ Editing...
 **[Malik Nur]**
 **[Patrick Vanderwall]**
 
+## Co-authors and team members
+** Austin Chang **
+** Austin Kihara **
+** Augustine Kim **
+** Chris Tran **
+** Jack Chang **
+** Malik Nur **
+** Patrick Vanderwall **
 
 [Austin Chang]: https://github.com/achang0406
 [Austin Kihara]: https://github.com/codecat223
