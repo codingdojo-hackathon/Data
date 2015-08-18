@@ -1,6 +1,6 @@
 # Data Mining and Vizualization Project
 
-**[ CodingDojo 2015 ]** 24-Hours Hackathon Winner
+**[CodingDojo 2015]** 24-Hours Hackathon Winner
 
 ## Technology stack
 ```
@@ -15,8 +15,9 @@ Highcharts
 ```
 
 ## About project
-Website automatically downloads each 30 minutes all 911 call logs from Seattle City Data API and save them in PostgreSQL database, then provides analyze on type of calls and vizualizes calls on Heatmap using Google Maps API.
-Moreover in the framework of this project, team conducted an analysis of all crime types in Seattle area and also vizualized them using Highcharts
+Website automatically downloads every 30 minutes all 911 call logs from Seattle City Data API and save them in PostgreSQL database, then provides analysis on different types of calls and vizualizes them on Heatmap using Google Maps API.
+
+Additionally, our team conducted an analysis of all crime types in Seattle area and also vizualized them using Highcharts
 
 ## Demo
 Here is prototype version of website deployed on Heroku - **[Demo]**
@@ -47,6 +48,7 @@ __Seattle Crime Types Chart:__
 **[Malik Nur]**
 **[Patrick Vanderwall]**
 
+[CodingDojo 2015]: http://codingdojo.com
 [Socrata]: http://dev.socrata.com/
 [Demo]: http://codingdojo-hackathon.herokuapp.com/
 [Austin Chang]: https://github.com/achang0406
