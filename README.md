@@ -38,7 +38,7 @@ __Seattle Crime Types Chart:__
 ![Seattle Crime2](/screenshots/seattle_crime2.png?raw=true)
 
 
-##Members:
+## Co-authors and team members:
 **[Austin Chang]**
 **[Austin Kihara]**
 **[Augustine Kim]**
@@ -47,14 +47,6 @@ __Seattle Crime Types Chart:__
 **[Malik Nur]**
 **[Patrick Vanderwall]**
 
-## Co-authors and team members
-** Austin Chang **
-** Austin Kihara **
-** Augustine Kim **
-** Chris Tran **
-** Jack Chang **
-** Malik Nur **
-** Patrick Vanderwall **
 
 [Austin Chang]: https://github.com/achang0406
 [Austin Kihara]: https://github.com/codecat223
