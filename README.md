@@ -6,8 +6,9 @@
 ```
 Ruby on Rails
 PostgreSQL
-Javascript / JSON
-Government Public APIs
+Javascript / AJAX / JSON
+Bootstrap-SASS
+Government Public APIs from **[Socrata]**
 Google Maps API
 Highcharts
 
@@ -17,8 +18,8 @@ Highcharts
 Website automatically downloads each 30 minutes all 911 call logs from Seattle City Data API and save them in PostgreSQL database, then provides analyze on type of calls and vizualizes calls on Heatmap using Google Maps API.
 Moreover in the framework of this project, team conducted an analysis of all crime types in Seattle area and also vizualized them using Highcharts
 
-## Limited Demo
-Here is limited version of website deployed - **[Demo]**
+## Demo
+Here is prototype version of website deployed on Heroku - **[Demo]**
 
 
 ## Screen Shots
@@ -46,7 +47,7 @@ __Seattle Crime Types Chart:__
 **[Malik Nur]**
 **[Patrick Vanderwall]**
 
-
+[Socrata]: http://dev.socrata.com/
 [Demo]: http://codingdojo-hackathon.herokuapp.com/
 [Austin Chang]: https://github.com/achang0406
 [Austin Kihara]: https://github.com/codecat223
