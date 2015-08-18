@@ -18,10 +18,8 @@ Website automatically downloads each 30 minutes all 911 call logs from Seattle C
 Moreover in the framework of this project, team conducted an analysis of all crime types in Seattle area and also vizualized them using Highcharts
 
 ## Limited Demo
-Here is limited version of website deployed
-** Demo **
+Here is limited version of website deployed - **[Demo]**
 
-[Demo]: http://codingdojo-hackathon.herokuapp.com/
 
 ## Screen Shots
 __Seattle 911 Calls Heatmap:__
@@ -49,6 +47,7 @@ __Seattle Crime Types Chart:__
 **[Patrick Vanderwall]**
 
 
+[Demo]: http://codingdojo-hackathon.herokuapp.com/
 [Austin Chang]: https://github.com/achang0406
 [Austin Kihara]: https://github.com/codecat223
 [Augustine Kim]: https://github.com/hkim2171
@@ -56,3 +55,5 @@ __Seattle Crime Types Chart:__
 [Jack Chang]: https://github.com/wei0831
 [Malik Nur]: https://github.com/maliknur
 [Patrick Vanderwall]: https://github.com/pvanderw
+
+
