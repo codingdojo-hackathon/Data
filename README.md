@@ -18,7 +18,8 @@ Website automatically downloads each 30 minutes all 911 call logs from Seattle C
 Moreover in the framework of this project, team conducted an analysis of all crime types in Seattle area and also vizualized them using Highcharts
 
 ## Limited Demo
-Here is limited version of website deployed - ** Demo **
+Here is limited version of website deployed
+** Demo **
 
 [Demo]: http://codingdojo-hackathon.herokuapp.com/
 
