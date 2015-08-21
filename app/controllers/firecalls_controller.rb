@@ -6,10 +6,10 @@ class FirecallsController < ApplicationController
   	@firecalls = Seattle911.select("seattle911s.incident_type")
   	@total = Seattle911.select("seattle911s.incident_type").count
   	@aidresponse_server = Seattle911.group(:incident_type).count(:incident_number)
-  	# hash = Hash.new(0)
-  	# @aidresponse_server.each do |k,v|
-  	# 	hash[k] += v
-  	# end
+  	hash = Hash.new(0)
+  	@aidresponse_server.each do |k,v|
+  		hash[k] += v
+  	end
 
 
   	# top_ten = hash.max_by(10, &:last).to_h
