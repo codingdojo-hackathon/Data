@@ -12,7 +12,7 @@ class FirecallsController < ApplicationController
   	end
 
 
-  	top_ten = hash.max_by(10, &:last).to_h
+  	@top_ten = hash.max_by(10, &:last)
 
 
   	# @aidresponse = Hash.new(0)
