@@ -3,17 +3,96 @@
 	<h1>Seattle Fire Real-Time 911 Calls</h1>
 
     <h3>Choose a Graph:</h3>
-
-        <select id="Chart_Type" placeholder="choose">
-          <option value="choose">Choose</option>  
-          <option value="pie">Pie Chart</option>
-          <option value="bar">Bar Chart</option>
-          <option value="line">Line Chart</option>
-        </select>  
-
+    <div class="row">
+        <div class="col-md-2">
+            <select id="Chart_Type" placeholder="choose" class="form-control">
+              <option value="choose">Choose</option>  
+              <option value="pie">Pie Chart</option>
+              <option value="bar">Bar Chart</option>
+              <option value="line">Line Chart</option>
+            </select>  
+        </div>
+    </div>
 
 	<div id="chart" style="width:100%; height:400px;">
     
 	</div>
 
 </div>
+
+
+<script> 
+
+var Chart_Type = "bar";
+
+
+$(document).ready(function(){     
+         
+
+  $('select').on('change', function() {
+      var Chart_Type = $('#Chart_Type').val();  
+      MakeChart(Chart_Type); 
+    });
+
+
+    function MakeChart(x) {
+
+        // Create the Pie chart
+        $('#chart').highcharts({
+            chart: {
+                type: x
+            },
+            title: {
+                text: 'Seattle Fire Calls'
+            },
+            subtitle: {
+                text: 'Hover over slices to view'
+            },
+            plotOptions: {
+                series: {
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}: {point.y:.1f}%'
+                    }
+                }
+            },
+
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+            },
+            series: [{
+                name: "Type of Call",
+                colorByPoint: true,
+
+                data: [
+               	<% boo = false%>
+                <% @aidresponse.each do |k,v| %>
+                <% percentage = v *100/@total %>
+                <%if boo %> 
+    	            <%= "," %> 
+                <% end %>
+                <% boo = true %>
+                {
+    	            	name: "<%= k %>",
+    	            	y: <%= percentage %>,
+    	            	drilldown: "<%= k %>"
+                }
+                <% end %>
+                ]            
+            }],
+
+        });
+    };
+
+
+//end doc ready
+})  
+
+
+
+
+
+</script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/highcharts-more.js"></script> 
