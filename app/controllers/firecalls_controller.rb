@@ -12,17 +12,17 @@ class FirecallsController < ApplicationController
   	end
 
 
-  	@top_ten = hash.max_by(10, &:last)
+  	top_ten = hash.max_by(10, &:last).to_h
 
 
-  	# @aidresponse = Hash.new(0)
-  	# @aidresponse = top_ten
-  	# @aidresponse["Others"] = 0
-  	# @aidresponse_server.each do |k,v|
-  	# 	if top_ten.include?("#{k}") == false
-  	# 		@aidresponse["Others"] += v
-  	# 	end
-  	# end
+  	@aidresponse = Hash.new(0)
+  	@aidresponse = top_ten
+  	@aidresponse["Others"] = 0
+  	@aidresponse_server.each do |k,v|
+  		if top_ten.include?("#{k}") == false
+  			@aidresponse["Others"] += v
+  		end
+  	end
 
   end
 
