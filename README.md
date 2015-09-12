@@ -57,7 +57,7 @@ __Seattle Crime Types Chart:__
 
 [CodingDojo 2015]: http://codingdojo.com
 [Demo]: http://codingdojo-hackathon.herokuapp.com/
-[Austin Chang]: https://github.com/achang0406
+[Chanzue Austin Chang]: https://github.com/achang0406
 [Austin Kihara]: https://github.com/codecat223
 [Augustine Kim]: https://github.com/hkim2171
 [Chris Tran]: https://github.com/christ-huytran
